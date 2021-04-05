@@ -1,0 +1,53 @@
+<div>
+    <h5>Seja bem vindo à Loja de Produtos</h5>
+    <hr />
+
+    <div class="row">
+
+        <div class="col-md-3" *ngFor="let item of produtos">
+            <div class="card mb-4">
+                <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.nome}}</h5>
+                    <p class="card-text">{{item.preco | currency : 'R$ '}}</p>
+
+                    <a href="#" class="btn btn-primary" data-bs-target="#modal_produto" data-bs-toggle="modal"
+                        (click)="obterProduto(item)">
+                        Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- janela modal para exibir os dados do produto selecionado -->
+<div id="modal_produto" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="modal-title">{{produto.nome}}</h5>
+                        <p>{{produto.descricao}}</p>
+                        <p><strong>{{produto.preco | currency : 'R$ '}}</strong></p>
+                        <hr />
+
+                        <div class="text-end">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            &nbsp;
+                            <button type="button" class="btn btn-success">Comprar Produto</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
